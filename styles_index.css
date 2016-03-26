@@ -1,0 +1,64 @@
+/* Стили для страницы входа в аккаунт/регистрации пользователя */
+
+* {
+	margin:0;
+	padding:0;
+}
+
+body {
+	background: url(images/background.jpg) no-repeat;
+	background-size: cover; 
+}  
+
+.wrapper_log {
+	border: 3px solid black;
+
+	width:350px;
+	height:400px;
+	position:absolute;
+	float:left;
+}
+
+.wrapper_log h1 {
+	font-size: 25px;
+	text-align: center;
+}
+
+.sign_in {
+	display:none;
+	position:relative;
+	left:50px;
+}
+
+.registration {
+	/*display:none;*/
+	position:relative;
+	left:50px;
+}
+
+.new_account {
+	background-color: red;
+	width:100px;
+	text-align:center;
+	margin: auto;
+	margin-top:15px;
+}
+
+.sign_buttons {
+	width:130px;
+	height:50px;
+	border:3px dotted green;
+	text-align:center;
+	margin:auto;
+	margin-top:130px;
+
+}
+
+.sign_buttons span {
+	display:inline-block;
+	background-color:blue;
+	width:100px;
+	height:30px;
+	border-radius:15px;
+	font-size:25px;
+}

@@ -1,0 +1,65 @@
+/* Стили для основного интерфейса заметок */
+
+* {
+	margin:0;
+	padding:0;
+}
+
+body {
+	background: url(images/background.jpg) no-repeat;
+	background-size: cover; 
+}
+
+.notes {
+	width:500px;
+	margin:auto;
+	margin-top:5%;
+	border:2px solid yellow;
+	text-align: center;
+}
+
+#new-title {
+	width:496px;
+	height: 30px;
+}
+
+#new-text {
+	width:496px;
+	height:30px;
+}
+
+.main {
+	background:#90A4C5;
+}
+
+.list-notes {
+	margin-top:10px;
+}
+
+/* Оформление отдельной заметки */
+
+.main li {
+	list-style-type:none;
+	border-bottom:1px dashed #21314C;
+	padding:5px 3px;
+}
+
+.list-notes .title {
+	font-size: 20px;
+}
+
+.list-notes .text {
+	display:none;
+}
+
+/* Оформление строки состояния */
+
+#footer {
+	background: white;
+}
+
+.info {
+	width:500px;
+	margin:auto;
+	text-align: center;
+}

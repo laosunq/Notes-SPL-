@@ -3,71 +3,8 @@
 <head>
 	<title>Nootes - speed notes for everybody</title>
 
-	<style>
-		* {
-			margin:0;
-			padding:0;
-		}
-
-		body {
-			background: url(images/background.jpg) no-repeat;
-			background-size: cover; 
-		}  
-
-		.wrapper_log {
-			border: 3px solid black;
-
-			width:250px;
-			height:300px;
-			position:absolute;
-			top:130px;
-			left:650px;
-		}
-
-		.wrapper_log h1 {
-			font-size: 25px;
-			text-align: center;
-		}
-
-		.sign_in {
-			display:none;
-			position:relative;
-			left:50px;
-		}
-
-		.registration {
-			/*display:none;*/
-			position:relative;
-			left:50px;
-		}
-
-		.new_account {
-			background-color: red;
-			width:100px;
-			text-align:center;
-			margin: auto;
-			margin-top:15px;
-		}
-
-		.sign_buttons {
-			width:130px;
-			height:50px;
-			border:3px dotted green;
-			text-align:center;
-			margin:auto;
-			margin-top:130px;
-
-		}
-
-		.sign_buttons span {
-			display:inline-block;
-			background-color:blue;
-			width:100px;
-			height:30px;
-			border-radius:15px;
-			font-size:25px;
-		}
-	</style>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="styles_index.css"/>
 </head>
 
 <body>
@@ -77,7 +14,7 @@
 			<!-- форма входа в аккаунт -->
 			<form action="" method="POST">
 				<input name="login" type="text" placeholder="enter login" autofocus />
-				<input name="pass" type="text" placeholder="enter password" />
+				<input name="pass" type="password" placeholder="enter password" />
 			</form>
 		</div>
 
@@ -85,7 +22,8 @@
 			<!-- форма регистрации -->
 			<form action="" method="POST">
 				<input name="login_reg" type="text" placeholder="your login" autofocus />
-				<input name="pass_reg" type="text" placeholder="password" />
+				<input name="pass_reg" type="password" placeholder="password" />
+				<input name="pass_reg1" type="password" placeholder="password again" />
 				<input name="name" type="text" placeholder="name" />
 				<input name="surname" type="text" placeholder="surname" />
 			</form>
