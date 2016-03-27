@@ -6,49 +6,46 @@
 	<meta charset="utf-8" />
 	<link rel="stylesheet" type="text/css" href="styles_main.css"/>
 
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+	<script src="enjoyhint/enjoyhint.min.js"></script>
+	<link href="enjoyhint/enjoyhint.css" rel="stylesheet">
+
 </head>
 <body>
 
 	<section class="notes">
 		<header>
 			<h1>Welcome to Nootes!<h1>
-			<input id="new-title" type="text" placeholder="Введите заголовок заметки" autofocus/>
-			<input id="new-text" type="textarea" placeholder="Введите текст заметки" disabled/>
+			<input id="new-title" type="text" value="Введите заголовок заметки"  required/>
+			<textarea id="new-text" placeholder="Введите текст заметки"  disabled wrap="soft">Введите текст заметки</textarea>
 		</header>
+		<footer id="footer">
+			<span class="count-point">
+				Сейчас <span>0</span> nootes
+			</span>
+			<span class="all-count-point">
+				Всего <span>0</span> nootes
+			</span>
+		</footer>
+
 		<section class="main">
 			<ul class="list-notes">
 				<li>
 					<div class="title">
-						Моя первая заметка
+						Первая заметка
+						<span class="edit">edit</span>
 					</div>
 					<div class="text">
-						Текст моей первой заметки
-					</div>
-				</li>
-				<li>
-					<div class="title">
-						Моя первая заметка
-					</div>
-					<div class="text">
-						Текст моей первой заметки
+						Текст первой заметки
 					</div>
 				</li>
 			</ul>
 		</section>
-
-		<footer id="footer">
-			<span class="count-point">
-				Имеется <span>0</span> заметок
-			</span>
-		</footer>
 	</section>
-
-	<footer class="info">
-			<span>Создано Садженицей Романом</span><br/>
-			<span>Для курса "Скриптовые языки программирования"</span>
-	</footer>
 
 
 	<script type="text/javascript" src="main.js"></script>
+<!-- 	<script type="text/javascript" src="hint-sequence.js"></script> -->
 </body>
 </html>
