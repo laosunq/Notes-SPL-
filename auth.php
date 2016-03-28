@@ -5,11 +5,10 @@
 
 	// подключение к базе + поиск зарегистрированного
 	$con = new MongoClient(); 
-	$user = $con -> nootes -> users -> $login;
+	$collection = $con -> nootes -> users;
 
 	$passDb = $user -> find();
 
-	var_dump($passDb -> password);
 
 
 ?>

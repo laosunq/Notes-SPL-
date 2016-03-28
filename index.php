@@ -1,3 +1,16 @@
+<?php
+	if(isset($_COOKIE["id"]) && isset($_COOKIE["hash"])) {
+
+		$con = new MongoClient(); 
+		$collection = $con -> nootes -> users;
+		$user = $collection -> find(array('_id' => new MongoId($_COOKIE["id"])));
+
+		if ($user['hash'] === $_COOKIE["hash"]) {
+			header("Refresh:0;URL=main.html");
+		}
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

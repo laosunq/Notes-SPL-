@@ -31,11 +31,13 @@ body {
 }
 
 textarea::-webkit-input-placeholder {
+	color:black;
 	font-size:15px;
 	font-family:Arial;
 }
 
 input::-webkit-input-placeholder {
+	color:black;
 	font-size:15px;
 	font-family:Arial;
 }
