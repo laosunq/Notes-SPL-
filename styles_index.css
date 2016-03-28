@@ -1,64 +1,96 @@
 /* Стили для страницы входа в аккаунт/регистрации пользователя */
 
+@font-face {
+    font-family: Harrington;
+    src: url(fonts/Harrington.ttf);
+}
+
 * {
 	margin:0;
 	padding:0;
 }
 
-body {
-	background: url(images/background.jpg) no-repeat;
-	background-size: cover; 
-}  
-
-.wrapper_log {
-	border: 3px solid black;
-
-	width:350px;
-	height:400px;
-	position:absolute;
-	float:left;
+input[type="text"], input[type="password"] {
+	width:190px;
+	height:20px;
+	padding-left: 10px;
 }
 
-.wrapper_log h1 {
-	font-size: 25px;
-	text-align: center;
+body {
+	background: url(images/background.jpg) no-repeat;
+	background-size: cover;
+	padding-top:10%;
+}  
+
+.note {
+	width:500px;
+	height:300px;
+	margin:auto;
+	text-align:center;
+	background:RGBA(255,255,255, 0.5);
+	padding-top:5%;
+}
+
+.note h1 {
+	margin-bottom: 30px;
+	font-size:50px;
+	font-family:Harrington;
+	color:#121A22;
 }
 
 .sign_in {
-	display:none;
-	position:relative;
-	left:50px;
+	margin-bottom: 10px;
+}
+
+.sign_in input[id="sign"] {
+	display:block;
+	margin:auto;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	border:none;
+	width:410px;
+	background:RGBA(107,126,145, 0.6);
+	padding:5px;
 }
 
 .registration {
-	/*display:none;*/
-	position:relative;
-	left:50px;
+	display:none;
+	margin-bottom: 10px;
 }
 
-.new_account {
-	background-color: red;
-	width:100px;
-	text-align:center;
-	margin: auto;
-	margin-top:15px;
+.registration input {
+	margin:3px;
+	padding-left: 10px;
 }
+
+.registration input[id="reg"] {
+	width:416px;
+	background:RGBA(107,126,145, 0.6);
+	border:none;
+	padding:5px;
+	margin-top: 10px;
+	margin-left:42px;
+}
+
+/* кнопки войти и регистрации */
 
 .sign_buttons {
-	width:130px;
-	height:50px;
-	border:3px dotted green;
-	text-align:center;
-	margin:auto;
-	margin-top:130px;
-
+	font-size: 15px;
 }
 
 .sign_buttons span {
-	display:inline-block;
-	background-color:blue;
-	width:100px;
-	height:30px;
-	border-radius:15px;
-	font-size:25px;
+	display:none;
+	margin:auto;
+	margin-bottom: 10px;
+	border:none;
+	width:406px;
+	background:RGBA(107,126,145, 0.6);
+	padding:5px;
 }
+
+.sign_buttons .new_account {
+	width:402px;
+	margin:auto;
+	background:RGBA(107,126,145, 0.6);
+	padding:5px;
+}	

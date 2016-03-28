@@ -3,7 +3,7 @@
 @font-face {
     font-family: Harrington;
     src: url(fonts/Harrington.ttf);
-   }
+}
 
 * {
 	margin:0;
@@ -87,7 +87,9 @@ input::-webkit-input-placeholder {
 
 .list-notes .text {
 	display:none;
-	background: RGBA(255,255,255, 0.5);
+/*	background: RGBA(255,255,255, 0.5);*/
+	background: #0D1925;
+	color:white;
 }
 
 .edit {
