@@ -1,4 +1,5 @@
 
+
 var sign = document.querySelector(".sign_buttons span");
 var reg = document.querySelector(".new_account");
 
@@ -9,6 +10,25 @@ var signForm = document.querySelector(".sign_in");
 var regForm = document.querySelector(".registration");
 
 
+function check() {
+	var data = "login=" + document.querySelector("input[name='login']").value;
+	var xhr = new XMLHttpRequest();
+	xhr.open("post",'check.php', true);
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhr.onreadystatechange = function() {
+		if ( xhr.readyState == 4 && xhr.status == 200 ) {
+			var fatal = document.getElementById("fatal");
+			
+			if (xhr.responseText == "In use") {
+				fatal.textContent = "That login is already in use.";
+			} else {
+				fatal.textContent = "";
+			}
+		}
+	}
+	xhr.send(data);
+}
+
 reg.onclick = function() {
 	signForm.style.display = "none";
 	regForm.style.display = "block";
@@ -17,6 +37,7 @@ reg.onclick = function() {
 	signSubmit.style.display = "none";
 	sign.style.display = "block";
 	regSubmit.style.display = "block";
+
 }
 
 sign.onclick = function() {
