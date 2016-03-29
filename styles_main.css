@@ -90,7 +90,6 @@ input::-webkit-input-placeholder {
 
 .list-notes .text {
 	display:none;
-/*	background: RGBA(255,255,255, 0.5);*/
 	background: #0D1925;
 	color:white;
 }

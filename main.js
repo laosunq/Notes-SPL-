@@ -6,7 +6,6 @@ var listNotes = document.querySelector(".list-notes");
 var allTitleNotes = document.querySelectorAll(".list-notes .title");
 
 ExistKeeps();
-checkStuding();
 
 // создаем объект обучения
 var enjoyhint_instance = new EnjoyHint({});
@@ -124,7 +123,8 @@ function userName() {
 function ExistKeeps() {
 
 	userName();
-	/*checkCookie();*/
+	checkStuding();
+	checkCookie();
 	
 	var xhr = new XMLHttpRequest();
 	xhr.open("post",'model.php', true);
@@ -132,9 +132,9 @@ function ExistKeeps() {
 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xhr.onreadystatechange = function()  {
 		if( xhr.readyState == 4 && xhr.status == 200 ) {
-			for(var f in JSON.parse(xhr.responseText)) {
-				var title = JSON.parse(xhr.responseText)[f].Title;
-				var note = JSON.parse(xhr.responseText)[f].Note;
+			for(var s in JSON.parse(xhr.responseText)) {
+				var title = JSON.parse(xhr.responseText)[s].Title;
+				var note = JSON.parse(xhr.responseText)[s].Note;
 				addNote(title, note);
 			}
 		}
@@ -149,11 +149,13 @@ function exit() {
 
 	xhr.open("post",'model.php', true);
 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-	xhr.onreadystatechange = function() 
-	{
+	xhr.onreadystatechange = function()  {
+
 		if( (xhr.readyState == 4)&&(xhr.status == 200) ) {
-			if(xhr.responseText == "Done!")
+
+			if (xhr.responseText == "Done!") {
 				location.href = "index.php";
+			}
 		}
 	}
 	xhr.send(data);
@@ -226,7 +228,7 @@ function getTextNote() {
 }
 
 // обновление количества заметок
-function getCountNotes(s=0) {
+function getCountNotes() {
 	allTitleNotes = document.querySelectorAll(".list-notes .title");
 	var countNotes = document.querySelector('.count-point span');
 
@@ -260,9 +262,8 @@ function addNote(title, note, s=0) {
 	template.appendChild(divTitle);
 	template.appendChild(divText);
 
-	if ( s ) {
+	if (s) {
 
-		// отправляем запрос в базу
 		var xhr = new XMLHttpRequest();
 		xhr.open("post",'model.php', true);
 		var data = "purpose=newNote&name=" + t.textContent +
@@ -281,7 +282,7 @@ function addNote(title, note, s=0) {
 					getEditNote();
 					getCountNotes();
 
-					// переносим фокус на введение заголовка нового заметки
+					// переносим фокус на введение заголовка новой заметки
 					newTitle.focus();
 				}
 			}

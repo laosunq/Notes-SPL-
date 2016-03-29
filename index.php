@@ -1,7 +1,8 @@
 <?php
 
-	// функция генерации строки куков
+	// функция генерации куков
 	function generateCode($length=10) {
+
 	    $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRQSTUVWXYZ0123456789";
 	    $code = "";
 
@@ -14,7 +15,7 @@
 	}
 
 	// регистрация пользователя
-	if (isset($_POST["login"]) && isset($_POST["pass"]) && isset($_POST["name"]) && isset($_POST["surname"])) {
+	if ( isset($_POST["login"]) && isset($_POST["pass"]) && isset($_POST["name"]) && isset($_POST["surname"]) ) {
 
 		$data = array( 
     		"login" => $_POST["login"], 
@@ -25,31 +26,33 @@
 		);
 
 		$con = new MongoClient();
-		$collection= $con-> nootes -> users;
+		$collection= $con ->  nootes -> users;
 
-		$collection->insert($data);
+		$collection -> insert($data);
 
 		$person = $collection -> findOne( array("login" => $_POST["login"]) );
 		$hash = md5(generateCode());
 
-		$collection -> update(array("login" => $_POST["login"]), array('$set' => array( "hash" => $hash )),array("upsert" => true));
+		$collection -> update(array("login" => $_POST["login"]), 
+							  array('$set' => array("hash" => $hash) ),
+							  array("upsert" => true));
 
 		$user_id = $person["_id"];
 		setcookie("id", $user_id, time()+3600);
 		setcookie("hash", $hash,time()+3600);
 
-		$con->close();
+		$con -> close();
 		header("Location: index.php");
 	}
 
- 	if( isset($_POST["loginSign"]) && isset($_POST["passSign"]) ) {
+ 	if ( isset($_POST["loginSign"]) && isset($_POST["passSign"]) ) {
 
 		$con = new MongoClient();
 		$col = $con -> nootes -> users;
 
-		$person = $col->findOne(array("login"=>$_POST["loginSign"]));
+		$person = $col -> findOne(array("login"=>$_POST["loginSign"]));
 
-		if($person["password"] === md5(sha1($_POST["passSign"]))) {
+		if ($person["password"] === md5(sha1($_POST["passSign"]))) {
 
 			$hash = md5(generateCode());
 
@@ -62,8 +65,7 @@
 			setcookie("id", $user_id, time()+3600);
 			setcookie("hash", $hash,time()+3600);
 
-			// прервать соединение с БД
-			$con->close();
+			$con -> close();
 			header("Location: index.php");
 		}
 	}
@@ -73,6 +75,7 @@
 		$col = $con -> nootes -> users;
 
 		$person = $col -> findOne(array("_id" => new MongoId($_COOKIE['id'])));
+
 		if ($person["hash"] === $_COOKIE['hash']) {
 			header("Location: main.html");
 		}
@@ -92,7 +95,7 @@
 	<div class="note">
 		<h1>Welcome to Nootes!</h1>
 		<div class="sign_in">
-			<!-- форма входа в аккаунт -->
+			<!-- форма входа в аккаунт --> 
 			<form method="POST">
 				<input name="loginSign" type="text" placeholder="электронная почта" autofocus required />
 				<input name="passSign" type="password" placeholder="пароль" required />
@@ -103,7 +106,7 @@
 		</div>
 
 		<div class="registration">
-			<!-- форма регистрации -->
+			<!-- форма регистрации --> 
 			<form method="POST">
 				<input name="name" type="text" placeholder="имя" autofocus required />
 				<input name="surname" type="text" placeholder="фамилия" required />

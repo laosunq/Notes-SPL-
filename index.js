@@ -9,7 +9,7 @@ var regSubmit = document.getElementById("reg");
 var signForm = document.querySelector(".sign_in");
 var regForm = document.querySelector(".registration");
 
-
+// проверка на наличие данного логина в базе
 function check() {
 	var data = "login=" + document.querySelector("input[name='login']").value;
 	var xhr = new XMLHttpRequest();
@@ -20,7 +20,7 @@ function check() {
 			var fatal = document.getElementById("fatal");
 			
 			if (xhr.responseText == "In use") {
-				fatal.textContent = "That login is already in use.";
+				fatal.textContent = "Этот логин уж используется";
 			} else {
 				fatal.textContent = "";
 			}

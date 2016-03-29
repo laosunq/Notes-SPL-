@@ -3,10 +3,10 @@
 	$con = new MongoClient();
 	$col = $con-> nootes-> users;
 	$person = $col -> findOne( array("login" => $_POST["login"]));
-	if(empty($person["login"])) {
+	
+	if ( empty($person["login"]) ) {
 		echo "Ok";
-	}
-	else {
+	} else {
 		echo "In use";
 	}
 
